@@ -1,8 +1,8 @@
-export const Criminals = (criminal) => {
+export const Criminal = (criminal) => {
     return `<section class="criminal__card" id="${criminal.id}"
                 <div class="criminal__name">${criminal.name}<div>
                 <div class="criminal__age">${criminal.age}<div>
-                <div class="criminal__convinction">${criminal.convinction}<div>
+                <div class="criminal__convinction">${criminal.conviction}<div>
                 <div class="criminal__termStart">${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}
                 <div class="criminal__termEnd">${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}
             </section>`

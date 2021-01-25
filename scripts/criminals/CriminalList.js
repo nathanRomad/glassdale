@@ -1,10 +1,12 @@
-import { getCriminals, useCriminals } from './criminals/CriminalProvider.js'
+import { getCriminals, useCriminals } from "./CriminalProvider.js"
+import { Criminal } from "./Criminal.js"
 
 export const CriminalList = () => {
     getCriminals()
       .then(() => {
         const criminalArray = useCriminals()
 
+        const criminalsContainer = document.querySelector(".criminalsContainer")
         let criminalsHTMLRepresentations = ""
   
         for (const criminal of criminalArray) {
