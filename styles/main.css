@@ -11,3 +11,23 @@
     margin: 10px;
     max-width: 250px;
 }
+
+.officersList {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    align-items: flex-start;
+    border: 2px dotted black;
+    margin: 10px;
+    max-width: 250px;
+}
+
+.officer {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    align-items: flex-start;
+    border: 2px dotted black;
+    margin: 10px;
+    max-width: 250px;
+}
