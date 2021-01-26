@@ -26,12 +26,10 @@ const render = (convictionsCollection) => {
     contentTarget.innerHTML = `
         <select class="dropdown" id="crimeSelect">
             <option value="0">Please select a crime...</option>
-            ${
-                convictionsCollection.map(convictionObject => {
-                    const crime = convictionObject.name
-                    return `<option>${crime}</option>`
-                })
+            ${convictionsCollection.map(convictions =>
+            `<option value="${convictions.id}">${convictions.name}</option>`
+                ).join("")
             }
-        </select>
+        </select> ...this dropdown is not yet functional.
     `
 }
