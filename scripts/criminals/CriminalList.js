@@ -1,22 +1,46 @@
-import { getCriminals, useCriminals } from "./CriminalProvider.js"
-import { Criminal } from "./Criminal.js"
-
-export const CriminalList = () => {
+  import { getCriminals, useCriminals } from "./CriminalProvider.js"
+  import { Criminal } from "./Criminal.js"
+  import { useConvictions } from "./../convictions/ConvictionProvider.js"
+  
+  const eventHub = document.querySelector(".container")
+  const criminalsContainer = document.querySelector(".criminalsContainer")
+  
+  
+  const renderToDom = (criminalCollection) => {
+    let criminalsHTMLRepresentations = ""
+  
+    for (const criminal of criminalCollection) {
+      criminalsHTMLRepresentations += Criminal(criminal)
+    }
+    
+    criminalsContainer.innerHTML = `
+    <h3>Criminals</h3>
+    <section class="criminalsList">
+    ${criminalsHTMLRepresentations}
+    </section>`
+  }
+  
+  export const CriminalList = () => {
+  
     getCriminals()
       .then(() => {
-        const criminalArray = useCriminals()
-
-        const criminalsContainer = document.querySelector(".criminalsContainer")
-        let criminalsHTMLRepresentations = ""
+        const criminalsArray = useCriminals()
+        renderToDom(criminalsArray)
   
-        for (const criminal of criminalArray) {
-          criminalsHTMLRepresentations += Criminal(criminal)
-        }
-        
-        criminalsContainer.innerHTML = `
-          <h3>Glassdale Criminals</h3>
-          <section class="criminalsList">
-          ${criminalsHTMLRepresentations}
-          </section>`
       })
   }
+  
+  eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
+    if (crimeChosenEvent.detail.crimeThatWasChosen !== "0") {
+      const convictionsArray = useConvictions()
+        const chosenConvictionObject = convictionsArray.find(convictionObj => {
+        return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
+      })
+
+      const criminalsArray = useCriminals()
+      const filteredCriminalsArray = criminalsArray.filter(
+        criminalObj => criminalObj.conviction === chosenConvictionObject.name)
+
+      renderToDom(filteredCriminalsArray)
+    }
+  })
