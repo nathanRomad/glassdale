@@ -5,7 +5,6 @@
   const eventHub = document.querySelector(".container")
   const criminalsContainer = document.querySelector(".criminalsContainer")
   
-  
   const renderToDom = (criminalCollection) => {
     let criminalsHTMLRepresentations = ""
   
@@ -21,12 +20,10 @@
   }
   
   export const CriminalList = () => {
-  
     getCriminals()
       .then(() => {
         const criminalsArray = useCriminals()
         renderToDom(criminalsArray)
-  
       })
   }
   
@@ -44,3 +41,21 @@
       renderToDom(filteredCriminalsArray)
     }
   })
+
+
+/// listening for officers arrest...
+
+  eventHub.addEventListener("officerSelect", event => {
+    // How can you access the officer name that was selected by the user?
+    const officerName = event.???
+
+    // How can you get the criminals that were arrested by that officer?
+    const criminals = useCriminals()
+    criminals.???(
+        criminalObject => {
+            if (criminalObject.??? === officerName) {
+                return true
+            }
+        }
+    )
+})

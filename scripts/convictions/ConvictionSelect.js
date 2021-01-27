@@ -19,7 +19,7 @@ const render = (convictionsCollection) => {
             `<option value="${convictions.id}">${convictions.name}</option>`
                 ).join("")
             }
-        </select> ...this dropdown is not yet functional.
+        </select>
     `
 }
 
