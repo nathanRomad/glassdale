@@ -48,11 +48,12 @@ import { useOfficers } from "../officers/OfficerProvider.js"
 eventHub.addEventListener("officerChosen", officerChosenEvent => {
   if (officerChosenEvent.detail.officerThatWasChosen !== "0") {
     const officersArray = useOfficers()
+    const criminalsArray = useCriminals()
     const chosenOfficerObject = officersArray.find(officerObj => {
-      return officerObj.name === parseInt(officerChosenEvent.detail.officerThatWasChosen)
+      return officerObj.id === parseInt(officerChosenEvent.detail.officerThatWasChosen)
     })
-    const filteredOfficersArray = officersArray.filter(
-      officerObj => officerObj.arrestingOfficer === chosenOfficerObject.name)
-    renderToDom(filteredOfficersArray)
+    const filteredCriminalsArray = criminalsArray.filter(
+      criminalObj => criminalObj.arrestingOfficer === chosenOfficerObject.name)
+    renderToDom(filteredCriminalsArray)
   }
 })

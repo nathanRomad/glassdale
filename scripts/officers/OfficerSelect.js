@@ -19,10 +19,9 @@ const render = (officersCollection) => {
             `<option value="${officers.id}">${officers.name}</option>`
                 ).join("")
             }
-        </select> ...This dropdown is not yet functional...
+        </select>
     `
 }
-
 
 eventHub.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "officerSelect") {
