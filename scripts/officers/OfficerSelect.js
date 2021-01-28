@@ -26,7 +26,6 @@ const render = (officersCollection) => {
 
 eventHub.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "officerSelect") {
-        console.log(changeEvent.target.value)
         const customEvent = new CustomEvent("officerChosen", {
             detail: {
                 officerThatWasChosen: changeEvent.target.value

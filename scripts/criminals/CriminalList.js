@@ -45,19 +45,14 @@ import { useOfficers } from "../officers/OfficerProvider.js"
 
 
 /// listening for officers arrest...
-eventHub.addEventListener("officerChosen", event => {
+eventHub.addEventListener("officerChosen", officerChosenEvent => {
   if (officerChosenEvent.detail.officerThatWasChosen !== "0") {
     const officersArray = useOfficers()
-    const chosenOfficerObject = officersArray.find(
-      
-      convictionObj => {
-      return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
+    const chosenOfficerObject = officersArray.find(officerObj => {
+      return officerObj.name === parseInt(officerChosenEvent.detail.officerThatWasChosen)
     })
-
-    const criminalsArray = useCriminals()
-    const filteredCriminalsArray = criminalsArray.filter(
-      criminalObj => criminalObj.conviction === chosenConvictionObject.name)
-
-    renderToDom(filteredCriminalsArray)
+    const filteredOfficersArray = officersArray.filter(
+      officerObj => officerObj.arrestingOfficer === chosenOfficerObject.name)
+    renderToDom(filteredOfficersArray)
   }
 })
