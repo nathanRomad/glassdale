@@ -1,5 +1,7 @@
 .criminalsContainer {
-    
+    /* display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start; */
 }
 
 .criminal__card {
@@ -15,11 +17,15 @@
 .officersList {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     flex-basis: 25%;
     align-items: flex-start;
     border: 2px dotted black;
     margin: 10px;
     max-width: 250px;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-between;
 }
 
 .officer {
@@ -31,3 +37,25 @@
     margin: 10px;
     max-width: 250px;
 }
+
+/* from class example:
+/* .criminalsList, .officersList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+  }
+  
+  .criminal, .officer {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    flex-basis: 25%;
+  }
+  
+  .criminal {
+    border: 1px dotted red;
+  }
+  
+  .officer {
+    border: 1px dotted blue;
+  } */ */
