@@ -1,4 +1,5 @@
 import { saveNote } from "./noteDataProvider.js"
+saveNote()
 
 const contentTarget = document.querySelector(".notesFormContainer")
 const eventHub = document.querySelector(".container")
@@ -23,11 +24,12 @@ export const NoteForm = () => {
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveNote") {
+        console.log("button clicked")
         const date = document.querySelector("#date")
         const author =  document.getElementById("note-author").value // another way to do it
         const suspect = document.querySelector("#note-suspect").value  // one way to do it 
         const note = document.querySelector("#note-text").value
-        const saveNote = document.querySelector("#saveNote")
+        const saveNote = document.querySelector("#saveNote").value
         // Make a new object representation of a note
         const newNote = {
             "date": date,
@@ -36,8 +38,6 @@ eventHub.addEventListener("click", clickEvent => {
             "note": note,
             "saveNote": saveNote,
         }
-
-        // Change API state and application state
         saveNote(newNote)
     }
 })
