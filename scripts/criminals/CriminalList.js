@@ -1,6 +1,7 @@
   import { getCriminals, useCriminals } from "./CriminalProvider.js"
   import { Criminal } from "./Criminal.js"
   import { useConvictions } from "./../convictions/ConvictionProvider.js"
+import { useOfficers } from "../officers/OfficerProvider.js"
   
   const eventHub = document.querySelector(".container")
   const criminalsContainer = document.querySelector(".criminalsContainer")
@@ -44,10 +45,19 @@
 
 
 /// listening for officers arrest...
+eventHub.addEventListener("officerChosen", event => {
+  if (officerChosenEvent.detail.officerThatWasChosen !== "0") {
+    const officersArray = useOfficers()
+    const chosenOfficerObject = officersArray.find(
+      
+      convictionObj => {
+      return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
+    })
 
-// eventHub.addEventListener("officerChosen", event => {
-//   if 
-//   // How can you access the officer name that was selected by the user?
-// //find()officer object
+    const criminalsArray = useCriminals()
+    const filteredCriminalsArray = criminalsArray.filter(
+      criminalObj => criminalObj.conviction === chosenConvictionObject.name)
 
-// })
+    renderToDom(filteredCriminalsArray)
+  }
+})
