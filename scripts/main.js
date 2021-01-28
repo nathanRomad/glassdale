@@ -3,9 +3,11 @@ import { getConvictions } from "./convictions/ConvictionProvider.js";
 import { CriminalList } from "./criminals/CriminalList.js";
 import { OfficerList } from "./officers/OfficerList.js";
 import { OfficerSelect } from "./officers/OfficerSelect.js";
+import { NoteForm } from "./notes/noteForm.js";
 
 OfficerList()
 CriminalList()
 getConvictions()
 ConvictionSelect()
 OfficerSelect()
+NoteForm()
