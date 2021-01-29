@@ -1,16 +1,7 @@
-// let notes = []
-// export const useNotes = () => notes.slice
+let notes = []
+export const useNotes = () => notes.slice()
 
-// const getNotes = () => {
-//     return fetch('http://localhost:8088/notes')
-//     .then(response => response.json())
-//     .then(parsedNotes => {
-//         notes = parsedNotes
-//     })
-    
-// }
-
-export const saveNote = note => {
+export const saveNote = (note) => {
     return fetch('http://localhost:8088/notes', {
         method: "POST",
         headers: {
@@ -18,14 +9,23 @@ export const saveNote = note => {
         },
         body: JSON.stringify(note)
     })
-    // .then(getNotes)
-    // .then(dispatchStateChangeEvent)
+    .then(getNotes)
+    .then(dispatchStateChangeEvent)
 }
 
-// const eventHub = document.querySelector(".container")
+export const getNotes = () => {
+    return fetch('http://localhost:8088/notes')
+    .then(response => response.json())
+    .then(parsedNotes => {
+        notes = parsedNotes
+    })
+    
+}
 
-// const dispatchStateChangeEvent = () => {
-//     const noteStateChangedEvent = new CustomEvent("noteStateChanged")
+const eventHub = document.querySelector(".container")
 
-//     eventHub.dispatchEvent(noteStateChangedEvent)
-// }
+const dispatchStateChangeEvent = () => {
+    const noteStateChangedEvent = new CustomEvent("noteStateChanged")
+
+    eventHub.dispatchEvent(noteStateChangedEvent)
+}

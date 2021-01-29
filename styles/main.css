@@ -4,7 +4,7 @@
     justify-content: space-evenly;
     align-content: space-between;
   }
-  
+
 .criminal__card {
     display: flex;
     flex-direction: column;
@@ -17,6 +17,24 @@
 
 .officer {
     display: flex;
+    flex-direction: column;
+    flex-basis: 25%;
+    align-items: flex-start;
+    border: 2px dotted black;
+    margin: 10px;
+    max-width: 250px;
+}
+
+.container2 {
+  display: flex;
+}
+
+.noteListContainer {
+max-width: 650px;
+}
+
+.note {
+  display: flex;
     flex-direction: column;
     flex-basis: 25%;
     align-items: flex-start;
