@@ -1,6 +1,9 @@
-.criminalsContainer {
-    
-}
+.criminalsList, .officersList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: space-between;
+  }
 
 .criminal__card {
     display: flex;
@@ -12,7 +15,7 @@
     max-width: 250px;
 }
 
-.officersList {
+.officer {
     display: flex;
     flex-direction: column;
     flex-basis: 25%;
@@ -22,8 +25,16 @@
     max-width: 250px;
 }
 
-.officer {
-    display: flex;
+.container2 {
+  display: flex;
+}
+
+.noteListContainer {
+max-width: 650px;
+}
+
+.note {
+  display: flex;
     flex-direction: column;
     flex-basis: 25%;
     align-items: flex-start;
