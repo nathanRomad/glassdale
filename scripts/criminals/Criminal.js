@@ -1,3 +1,5 @@
+import { ShowAssociatesButton } from "../associates/ShowAssociatesButton.js"
+
 export const Criminal = (criminal) => {
     return `<section class="criminal__card" id="${criminal.id}"
                 <div class="criminal__name">${criminal.name}<div>
@@ -5,5 +7,10 @@ export const Criminal = (criminal) => {
                 <div class="criminal__conviction">${criminal.conviction}<div>
                 <div class="criminal__termStart">${new Date(criminal.incarceration.start).toLocaleDateString('en-US')}
                 <div class="criminal__termEnd">${new Date(criminal.incarceration.end).toLocaleDateString('en-US')}
-            </section>`
-}
+                <div>${ShowAssociatesButton(criminal)}</div>
+                </section>`
+            }
+
+
+
+//dispatch event.

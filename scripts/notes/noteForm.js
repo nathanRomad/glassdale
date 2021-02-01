@@ -24,10 +24,10 @@ export const NoteForm = () => {
 }
 
 eventHub.addEventListener("click", clickEvent => {
-    clickEvent.preventDefault()
     if (clickEvent.target.id === "saveNote") {
+        // clickEvent.preventDefault()
         const suspect = document.querySelector("#note-suspect").value  // one way to do it 
-        const date = document.querySelector("#date")
+        const date = document.querySelector("#date").value
         const author =  document.getElementById("note-author").value // another way to do it
         const note = document.querySelector("#note-text").value
         // Make a new object representation of a note
@@ -38,5 +38,9 @@ eventHub.addEventListener("click", clickEvent => {
             "note": note,
         }
         saveNote(newNote)
+        document.querySelector("#note-suspect").value = ""
+        document.querySelector("#date").value = ""
+        document.getElementById("note-author").value = ""
+        document.querySelector("#note-text").value = ""
     }
 })

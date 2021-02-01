@@ -6,7 +6,7 @@ export const ShowNoteButton = () => {
 }
 
 eventHub.addEventListener("click", clickEvent => {
-    clickEvent.preventDefault()
+    // clickEvent.preventDefault()
     if (clickEvent.target.id === "showNotes") {
         const customEvent = new CustomEvent("showNotesClicked")
         eventHub.dispatchEvent(customEvent)

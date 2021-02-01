@@ -1,18 +1,11 @@
 {
   "notes": [
     {
-      "date": {},
-      "author": "Nathan",
-      "suspect": "Alexa",
-      "note": "There's only 2 of us here and I didn't do it!",
+      "date": "",
+      "author": "",
+      "suspect": "",
+      "note": "",
       "id": 1
-    },
-    {
-      "date": {},
-      "author": "Nathan",
-      "suspect": "test",
-      "note": "test",
-      "id": 2
     }
   ]
 }
