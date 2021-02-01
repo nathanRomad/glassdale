@@ -1,53 +1,11 @@
 {
   "notes": [
     {
-      "date": "2021-02-01",
-      "author": "Nathan",
-      "suspect": "Jisie",
-      "note": "knows too much.",
+      "date": "",
+      "author": "",
+      "suspect": "",
+      "note": "",
       "id": 1
-    },
-    {
-      "date": "2021-02-01",
-      "author": "Nathan",
-      "suspect": "Jisie",
-      "note": "knows too much.",
-      "id": 2
-    },
-    {
-      "date": "2021-02-01",
-      "author": "Nathan",
-      "suspect": "Bryan",
-      "note": "had to be him.",
-      "id": 3
-    },
-    {
-      "date": "2021-02-01",
-      "author": "Nathan",
-      "suspect": "Alexa",
-      "note": "there's only 2 of us, it wasn't me.",
-      "id": 4
-    },
-    {
-      "date": "2021-02-01",
-      "author": "Nathan",
-      "suspect": "Alexa",
-      "note": "there's only 2 of us, it wasn't me.",
-      "id": 5
-    },
-    {
-      "date": "2021-02-01",
-      "author": "Nathan",
-      "suspect": "Alexa",
-      "note": "there's only 2 of us, it wasn't me.",
-      "id": 6
-    },
-    {
-      "date": "2021-02-01",
-      "author": "Nate",
-      "suspect": "Anyone",
-      "note": "someone",
-      "id": 7
     }
   ]
 }
