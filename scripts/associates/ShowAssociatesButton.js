@@ -16,7 +16,7 @@ if (event.target.id.startsWith("associates--")) {
     eventHub.dispatchEvent(customEvent)
 }
 })
-
+// creating a customEvent requires you to provide detail of the payload being passed. criminalID we are 
 
 // TODO: PART 1 - Make Button - Dispatch Custom Event
 // Create a ShowAssociates Button component that returns some button HTML representation = done
