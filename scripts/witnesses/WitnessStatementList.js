@@ -1,4 +1,6 @@
+import { Witness } from "./Witness"
 import { getWitnesses, useWitnesses } from "./WitnessDataProvider"
+import { ShowWitnessesButton } from "./WitnessStatementButton"
 
 const eventHub = document.querySelector(".container")
 
@@ -22,6 +24,13 @@ export const WitnessList = () => {
 const renderToDom = (witnessCollection) => {
     let witnessHTMLrepresentation = ""
     for (const witness of witnessCollection) {
-        witnessHTMLrepresentation += WitnessList(witness)
+        witnessHTMLrepresentation += Witness(witnessObj)
     }
-}
+    witnessContainer.innerHTML = `
+      <h2>Witness Statements</h2>
+      ${witnessHTMLrepresentation}
+      </section>`
+  }
+
+
+        
