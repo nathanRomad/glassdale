@@ -1,7 +1,7 @@
 const eventHub = document.querySelector(".container")
+const contentTarget = document.querySelector(".noteListContainer")
 
 export const ShowNoteButton = () => {
-    const contentTarget = document.querySelector(".noteListFieldSet")
     contentTarget.innerHTML += "<button id='showNotes'>Show Notes</button>"
 }
 

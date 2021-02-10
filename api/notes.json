@@ -1,4 +1,25 @@
 {
   "notes": [
+    {
+      "date": "2021-02-09",
+      "author": "Nathan",
+      "suspect": "Nathanael",
+      "note": "I don't like the looks of his name.",
+      "id": 1
+    },
+    {
+      "date": "2021-02-09",
+      "author": "Nathan",
+      "suspect": "The Instructor Team",
+      "note": "pace.",
+      "id": 2
+    },
+    {
+      "date": "2021-02-09",
+      "author": "Nathan",
+      "suspect": "me",
+      "note": "can't remember where I was with the investigation and how I am involved.",
+      "id": 3
+    }
   ]
 }

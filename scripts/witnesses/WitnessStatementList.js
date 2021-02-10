@@ -1,17 +1,17 @@
-import { Witness } from "./Witness"
-import { getWitnesses, useWitnesses } from "./WitnessDataProvider"
-import { ShowWitnessesButton } from "./WitnessStatementButton"
+import { Witness } from "./Witness.js"
+import { getWitnesses, useWitnesses } from "./WitnessDataProvider,js"
+import "./WitnessStatementButton"
 
 const eventHub = document.querySelector(".container")
+const contentContainer = document.querySelector(".witnessContainer")
 
 eventHub.addEventListener("WitnessesClicked", event => {
     const selectedWitnessID = event.detail.witnessID
     const witnessArray = useWitnesses()
     const selectedWitness = witnessArray.find((witnessObj) => witnessObj.id === selectedWitnessID)
-    AssociatesModal(selectedWitness)
+    renderToDom(selectedWitness)
+    //broken evenListener.. why renderToDom?
 })
-
-const contentContainer = document.querySelector(".witnessContainer")
 
 export const WitnessList = () => {
     getWitnesses()
@@ -26,11 +26,9 @@ const renderToDom = (witnessCollection) => {
     for (const witness of witnessCollection) {
         witnessHTMLrepresentation += Witness(witnessObj)
     }
-    witnessContainer.innerHTML = `
+    contentContainer.innerHTML = `
       <h2>Witness Statements</h2>
       ${witnessHTMLrepresentation}
       </section>`
   }
-
-
-        
+  //need to check Witness() function is correct.
