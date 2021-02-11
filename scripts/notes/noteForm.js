@@ -1,6 +1,7 @@
 import { useCriminals, getCriminals } from "../criminals/CriminalProvider.js"
 import { useOfficers } from "../officers/OfficerProvider.js"
 import { saveNote } from "./noteDataProvider.js"
+import { ShowNoteButton } from "./ShowNotesButton.js"
 
 const contentTarget = document.querySelector(".noteListContainer")
 const eventHub = document.querySelector(".container")
@@ -47,7 +48,7 @@ const render = (criminalCollection) => {
                 "date": date,
                 "author": author, 
                 "note": note,
-                "criminalId": pareseInt(selectedCriminalId)
+                "criminalId": parseInt(selectedCriminalId)
             }
             saveNote(newNote)
             document.querySelector("#noteForm--criminal").value = ""

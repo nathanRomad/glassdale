@@ -1,7 +1,7 @@
 const eventHub = document.querySelector(".container")
 
 export const ShowNoteButton = () => {
-    const contentTarget = document.querySelector(".noteListFieldSet")
+    const contentTarget = document.querySelector(".notesFormContainer")
     contentTarget.innerHTML += "<button id='showNotes'>Show Notes</button>"
 }
 //contentTarget has issues because of the form... the showNoteButton is not showing up!

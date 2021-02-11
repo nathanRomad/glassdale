@@ -24,16 +24,16 @@ export const NoteList = () => {
       })
   }
 
-const render = (noteArray, criminalCollection) => {
-  const allNotesConvertedToStrings = noteArray.map(noteObject => {
-    const relatedCriminal = criminalCollection.find(criminal => criminal.id === noteObject.criminalId)
+  const render = (noteArray, criminalCollection) => {
+    const allNotesConvertedToStrings = noteArray.map(noteObject => {
+      debugger
+    const relatedCriminal = criminalCollection.find(criminal => criminal.id === noteObject.id)
     return NoteHTMLConverter(noteObject, relatedCriminal)
   }).join("")
-  
-  contentTarget.innerHTML = `
-      <h3>Case Notes about ${relatedCriminal.name}</h3>
-      <section class="notesList">
-      ${allNotesConvertedToStrings}
-      </section>
-      `
+    
+    contentTarget.innerHTML = `
+    <section class="notesList">
+    ${allNotesConvertedToStrings}
+    </section>
+    `
   }
