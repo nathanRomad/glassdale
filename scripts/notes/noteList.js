@@ -1,5 +1,6 @@
 import { getNotes, useNotes } from "./noteDataProvider.js";
 import { NoteHTMLConverter } from "./Note.js";
+import { getCriminals, useCriminals } from "../criminals/CriminalProvider.js";
 
 const contentTarget = document.querySelector(".notesFormContainer")
 const eventHub = document.querySelector(".container")
@@ -13,22 +14,26 @@ eventHub.addEventListener("noteStateChanged", event => {
   }
 })
 
-const render = (noteArray) => {
-    const allNotesConvertedToStrings = noteArray.map(noteObject => 
-        NoteHTMLConverter(noteObject)
-    ).join("")
-    contentTarget.innerHTML = `
-        <h3>Case Notes</h3>
-        <section class="notesList">
-        ${allNotesConvertedToStrings}
-        </section>
-`
-}
-
 export const NoteList = () => {
-    getNotes()
-        .then(() => {
-            const allNotes = useNotes()
-            render(allNotes)
-        })
-}
+  getNotes()
+      .then(getCriminals)
+      .then(() => {
+        const notes = useNotes()
+        const criminals = useCriminals()
+        render(notes, criminals)
+      })
+  }
+
+const render = (noteArray, criminalCollection) => {
+  const allNotesConvertedToStrings = noteArray.map(noteObject => {
+    const relatedCriminal = criminalCollection.find(criminal => criminal.id === noteObject.criminalId)
+    return NoteHTMLConverter(noteObject, relatedCriminal)
+  }).join("")
+  
+  contentTarget.innerHTML = `
+      <h3>Case Notes about ${relatedCriminal.name}</h3>
+      <section class="notesList">
+      ${allNotesConvertedToStrings}
+      </section>
+      `
+  }

@@ -1,11 +1,25 @@
 {
   "notes": [
     {
+      "date": "2021-02-11",
+      "author": "Nathan",
+      "suspect": "Nathanael",
+      "note": "He has a suspicious name..",
+      "id": 1
+    },
+    {
       "date": "",
       "author": "",
-      "suspect": "",
       "note": "",
-      "id": 1
+      "criminalId": "0",
+      "id": 2
+    },
+    {
+      "date": "2021-02-11",
+      "author": "Nathan",
+      "note": "Jordane might be sus.",
+      "criminalId": "5",
+      "id": 3
     }
   ]
 }
