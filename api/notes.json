@@ -1,11 +1,18 @@
 {
   "notes": [
     {
-      "date": "",
-      "author": "",
-      "suspect": "",
-      "note": "",
+      "date": "2021-02-11",
+      "author": "Nathan",
+      "note": "she guilty.",
+      "criminalId": 1,
       "id": 1
+    },
+    {
+      "date": "2021-02-12",
+      "author": "Nathan",
+      "note": "michel maybe..",
+      "criminalId": 4,
+      "id": 2
     }
   ]
 }
