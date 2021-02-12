@@ -12,7 +12,6 @@ eventHub.addEventListener("AssociatesClicked", event => {
 
 const contentContainer = document.querySelector(".associatesContainer")
 
-// don't fully understand the AssociateModal function..
 export const AssociatesModal = (criminalObj) => {
     const HTMLRepresentation = `
     <div id="alibi__modal" class="modal--parent">

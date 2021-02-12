@@ -10,7 +10,3 @@ export const Criminal = (criminal) => {
                 <div>${ShowAssociatesButton(criminal)}</div>
                 </section>`
             }
-
-
-
-//dispatch event.

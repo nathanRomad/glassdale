@@ -7,7 +7,7 @@ const eventHub = document.querySelector(".container")
 
 eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "showWitnesses") {
-        const customEvent = new CustomEvent("showWitnessStatements")
+        const customEvent = new CustomEvent("showWitnessesClicked")
         eventHub.dispatchEvent(customEvent)
     }
 })
