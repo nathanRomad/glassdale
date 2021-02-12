@@ -1,6 +1,15 @@
 let notes = []
 export const useNotes = () => notes.slice()
 
+export const getNotes = () => {
+    return fetch('http://localhost:8088/notes')
+    .then(response => response.json())
+    .then(parsedNotes => {
+        notes = parsedNotes
+    })
+    
+}
+
 export const saveNote = (note) => {
     // let stringifiedObj = JSON.stringify(note)
     return fetch('http://localhost:8088/notes', {
@@ -14,19 +23,15 @@ export const saveNote = (note) => {
     .then(dispatchStateChangeEvent)
 }
 
-export const getNotes = () => {
-    return fetch('http://localhost:8088/notes')
-    .then(response => response.json())
-    .then(parsedNotes => {
-        notes = parsedNotes
+export const deleteNote = noteId => {
+    return fetch(`http://localhost:8088/notes/${noteId}`, {
+        method: "DELETE"
     })
-    
+        .then(getNotes)
 }
 
 const eventHub = document.querySelector(".container")
-
 const dispatchStateChangeEvent = () => {
     const noteStateChangedEvent = new CustomEvent("noteStateChanged")
-
     eventHub.dispatchEvent(noteStateChangedEvent)
 }
