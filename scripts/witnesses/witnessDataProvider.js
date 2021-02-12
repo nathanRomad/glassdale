@@ -1,12 +1,14 @@
-let witnesses = [];
+let witnesses = []
 
-export const useWitness = () => witnesses.slice();
+export const useWitnesses = () => witnesses.slice()
 
 export const getWitnesses = () => {
     return fetch("https://criminals.glassdale.us/witnesses")
-    .then(response => response.json())
-    .then(parsedWitnesses => { 
-        witnesses = parsedWitnesses
-        console.log('witnesses: ', witnesses)
-    })
+        .then(response => response.json())
+        .then(
+            parsedWitnesses => {
+                console.table(parsedWitnesses)
+                witnesses = parsedWitnesses
+            }
+        )
 }

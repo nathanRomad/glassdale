@@ -1,8 +1,7 @@
-export const Witness = (witness) => {
+export const Witness = (witnessObj) => {
     return `
-    <p class="witness"> 
-        <b>Witness Name: </b>${witness.name}<br>
-        <b>Statements: </b>${witness.statements}<br>
-    </p>    
+        <p class="Witness">
+            ${witnessObj.name}
+        </p>
     `
-}
+  }
