@@ -8,5 +8,4 @@ export const NoteHTMLConverter = (noteObject, relatedCriminal) => {
         </section>
     `
 }
-
 //not sure about date reference.
