@@ -1,5 +1,5 @@
 import { Witness } from "./Witness.js"
-import { getWitnesses, useWitness } from "./WitnessDataProvider.js"
+import { getWitnesses, useWitnesses } from "./WitnessDataProvider.js"
 import "./witnessButton.js"
 
 const eventHub = document.querySelector(".container")
@@ -14,8 +14,7 @@ export const WitnessList = () => {
     criminalContainer.innerHTML = ""
     getWitnesses()
     .then(() => {
-        const witnessesArray = useWitness()
-        debugger
+        const witnessesArray = useWitnesses()
         renderToDom(witnessesArray)
     })
 }
