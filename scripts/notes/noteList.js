@@ -26,7 +26,6 @@ export const NoteList = () => {
 
   const render = (noteArray, criminalCollection) => {
     const allNotesConvertedToStrings = noteArray.map(noteObject => {
-      debugger
     const relatedCriminal = criminalCollection.find(criminal => criminal.id === noteObject.id)
     return NoteHTMLConverter(noteObject, relatedCriminal)
   }).join("")

@@ -31,6 +31,7 @@ const render = (criminalCollection) => {
     <label for="note-text">Note:</label>
     <textarea type="text" id="note-text"></textarea>
     <button id="saveNote">Save Note</button>
+    ${ShowNoteButton()}
     </fieldset>
     `
 }
