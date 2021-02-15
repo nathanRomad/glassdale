@@ -12,10 +12,10 @@ const renderToDom = (criminalsToRender, allFacilities, allRelationships) => {
   // Step 1 - Iterate all criminals
   criminalsContainer.innerHTML = criminalsToRender.map(
       (criminalObject) => {
+        // Step 2 - Filter all relationships to get only ones for this criminal
+        const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
         // debugger
-          // Step 2 - Filter all relationships to get only ones for this criminal
-          const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
-
+          // cannot read FILTER
           // Step 3 - Convert the relationships to facilities with map()
           const facilities = facilityRelationshipsForThisCriminal.map(cf => {
               const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
@@ -52,12 +52,14 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
       const chosenConvictionObject = convictionsArray.find(convictionObj => {
       return convictionObj.id === parseInt(crimeChosenEvent.detail.crimeThatWasChosen)
     })
-
+    const criminalFacilities = useCriminalFacilities()
+    const facilities = useFacilities()
     const criminalsArray = useCriminals()
     const filteredCriminalsArray = criminalsArray.filter(
       criminalObj => criminalObj.conviction === chosenConvictionObject.name)
 
-    renderToDom(filteredCriminalsArray)
+    renderToDom(filteredCriminalsArray, facilities, criminalFacilities)
+    // debugger
   }
 })
 
@@ -70,8 +72,10 @@ eventHub.addEventListener("officerChosen", officerChosenEvent => {
     const chosenOfficerObject = officersArray.find(officerObj => {
       return officerObj.id === parseInt(officerChosenEvent.detail.officerThatWasChosen)
     })
+    const criminalFacilities = useCriminalFacilities()
+    const facilities = useFacilities()
     const filteredCriminalsArray = criminalsArray.filter(
       criminalObj => criminalObj.arrestingOfficer === chosenOfficerObject.name)
-    renderToDom(filteredCriminalsArray)
+    renderToDom(filteredCriminalsArray, facilities, criminalFacilities)
   }
 })

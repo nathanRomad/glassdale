@@ -1,7 +1,8 @@
 export const Facilities = (facilitiesObj) => {
+    // debugger
     return `
         <p class="Facilities">
-            ${facilitiesObj.name}
+            Correctional Facility: ${facilitiesObj.facilityName}
         </p>
     `
     }

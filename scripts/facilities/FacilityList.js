@@ -1,6 +1,7 @@
 // This could be it's own module but I made decided to create the button and actions all in FacilityList.js
 
 import { getFacilities, useFacilities } from "./FacilityProvider.js"
+import { Facilities } from "./facilities.js"
 
 // This function renders the button to the DOM.
 export const DisplayFacilitiesButton = () => {
@@ -20,10 +21,11 @@ eventHub.addEventListener("click", clickEvent => {
 })
 // Listen for the customEvent
 eventHub.addEventListener("facilitiesButtonClicked", clickEvent => {
-    // debugger
+    FacilitiesList()
 })
 
 const facilitiesContainer = document.querySelector(".facilityContainer")
+// Do I need a second target for my render? should I render the information to replace something?
 
 export const FacilitiesList = () => {
     facilitiesContainer.innerHTML = ""
