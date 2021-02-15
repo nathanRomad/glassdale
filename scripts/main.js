@@ -21,9 +21,13 @@ ConvictionSelect()
 OfficerSelect()
 NoteForm()
 ShowNoteButton()
-// getCriminals().then(NoteForm)
-
 getWitnesses()
 ShowWitnessButton()
 useCriminalFacilities()
 getFacilities()
+
+
+// testing:
+// getCriminals().then(NoteForm)
+import { DisplayFacilitiesButton } from "../scripts/facilities/FacilityList.js"
+DisplayFacilitiesButton()
