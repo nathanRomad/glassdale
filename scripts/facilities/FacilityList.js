@@ -37,7 +37,7 @@ export const FacilitiesList = () => {
 const renderFacilities = (facilitiesCollection) => {
     let facilitiesHTMLrepresentations = ""
     for (const facilityObject of facilitiesCollection) {
-        facilitiesHTMLrepresentations += FacilitiesList(facilityObject)
+        facilitiesHTMLrepresentations += Facilities(facilityObject)
     }
     facilitiesContainer.innerHTML = `
     <h2>Facilities: </h2>
