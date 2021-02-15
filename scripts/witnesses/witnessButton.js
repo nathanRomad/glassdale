@@ -1,5 +1,5 @@
 export const ShowWitnessButton = () => {
-    const contentTarget = document.querySelector(".witnessContainer")
+    const contentTarget = document.querySelector(".buttonContainer")
     contentTarget.innerHTML += "<button id='showWitnesses'>Show Witness Statements</button>"
 }
 

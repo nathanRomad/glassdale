@@ -3,7 +3,7 @@ import { getWitnesses, useWitnesses } from "./WitnessDataProvider.js"
 import "./witnessButton.js"
 
 const eventHub = document.querySelector(".container")
-const contentContainer = document.querySelector(".witnessContainer")
+const contentContainer = document.querySelector(".buttonContainer")
 const criminalContainer = document.querySelector(".criminalsContainer")
 
 eventHub.addEventListener("showWitnessesClicked", event => {
