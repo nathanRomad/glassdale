@@ -8,7 +8,7 @@ import { getCriminalFacilities, useCriminalFacilities } from "../facilities/Crim
 const eventHub = document.querySelector(".container")
 const criminalsContainer = document.querySelector(".criminalsContainer")
 
-const renderToDom = (criminalCollection, facilitiesCollection, ) => {
+const renderToDom = (criminalCollection, facilitiesCollection, relationshipsCollection) => {
   let criminalsHTMLRepresentations = ""
 
   for (const criminal of criminalCollection) {
