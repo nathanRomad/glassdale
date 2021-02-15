@@ -9,6 +9,6 @@ export const getCriminalFacilities = () => {
         .then(response => response.json())
         .then(apiData => {
             criminalFacilities = apiData
+            console.log(criminalFacilities)
         })
 }
-console.log(criminalFacilities)
