@@ -11,3 +11,4 @@ export const getCriminalFacilities = () => {
             criminalFacilities = apiData
         })
 }
+console.log(criminalFacilities)

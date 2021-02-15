@@ -9,3 +9,5 @@ export const getFacilities = () => {
         facilities = apiData
     })
 }
+
+console.log(facilities)
