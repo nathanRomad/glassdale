@@ -24,10 +24,11 @@ ShowNoteButton()
 getWitnesses()
 ShowWitnessButton()
 useCriminalFacilities()
-getFacilities()
+// getFacilities()
 
 
 // testing:
 // getCriminals().then(NoteForm)
-import { DisplayFacilitiesButton } from "../scripts/facilities/FacilityList.js"
-DisplayFacilitiesButton()
+// import { DisplayFacilitiesButton, FacilitiesList } from "../scripts/facilities/FacilityList.js"
+// DisplayFacilitiesButton()
+// FacilitiesList()

@@ -1,6 +1,6 @@
 // This could be it's own module but I made decided to create the button and actions all in FacilityList.js
 
-import { getFacilities, useFacilities } from "./FacilityProvider"
+import { getFacilities, useFacilities } from "./FacilityProvider.js"
 
 // This function renders the button to the DOM.
 export const DisplayFacilitiesButton = () => {
@@ -15,11 +15,12 @@ eventHub.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "showFacilities") {
         const customEvent = new CustomEvent("facilitiesButtonClicked")
         eventHub.dispatchEvent(customEvent)
+        // debugger
     }
 })
 // Listen for the customEvent
-eventHub.addEventListener("click", clickEvent => {
-
+eventHub.addEventListener("facilitiesButtonClicked", clickEvent => {
+    // debugger
 })
 
 const facilitiesContainer = document.querySelector(".facilityContainer")
@@ -32,14 +33,6 @@ export const FacilitiesList = () => {
         renderFacilities(faciilitiesArray)
     })
 }
-
-// export const FacilitiesList = (witnessObj) => {
-//     return `
-//         <p class="Facilities">
-//             ${witnessObj.name}
-//         </p>
-//     `
-//     }
 
 const renderFacilities = (facilitiesCollection) => {
     let facilitiesHTMLrepresentations = ""
