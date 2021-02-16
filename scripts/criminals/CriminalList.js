@@ -7,8 +7,11 @@ import { getCriminalFacilities, useCriminalFacilities } from "../facilities/Crim
   
 const eventHub = document.querySelector(".container")
 const criminalsContainer = document.querySelector(".criminalsContainer")
+const facilitiesContainer = document.querySelector(".facilityContainer")
+const witnessContainer = document.querySelector(".witnessContainer")
 
 eventHub.addEventListener("showCriminalsClicked", event => {
+  // debugger
   CriminalList()
 })
 
@@ -34,6 +37,8 @@ const renderToDom = (criminalsToRender, allFacilities, allRelationships) => {
 
 
 export const CriminalList = () => {
+  facilitiesContainer.innerHTML = ""
+  witnessContainer.innerHTML = ""
   // Kick off the fetching of both collections of data
   getFacilities()
     .then(getCriminalFacilities)
