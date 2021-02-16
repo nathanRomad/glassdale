@@ -26,37 +26,17 @@ export const FacilitiesList = () => {
     })
 }
 
-const renderFacilities = (facilitiesCollection) => {
-
-    let facilitiesHTMLrepresentations = ""
-    for (const facilityObject of facilitiesCollection) {
-        facilitiesHTMLrepresentations += Facilities(facilityObject)
-    }
-    contentContainer.innerHTML = `
-        <h2>Facilities: </h2>
-        ${facilitiesHTMLrepresentations}
-        </section>`
-    }
-
-// const renderToDom = (criminalsToRender, allFacilities, allRelationships) => {
-//     // Step 1 - Iterate all criminals
-//     criminalsContainer.innerHTML = criminalsToRender.map(
-//         (criminalObject) => {
-//           // Step 2 - Filter all relationships to get only ones for this criminal
-//           const facilityRelationshipsForThisCriminal = allRelationships.filter(cf => cf.criminalId === criminalObject.id)
-//           // debugger
-//             // cannot read FILTER
-//             // Step 3 - Convert the relationships to facilities with map()
-//             const facilities = facilityRelationshipsForThisCriminal.map(cf => {
-//                 const matchingFacilityObject = allFacilities.find(facility => facility.id === cf.facilityId)
-//                 return matchingFacilityObject
-//             })
-    
-//             // Must pass the matching facilities to the Criminal component
-//             return Criminal(criminalObject, facilities)
-//         }
-//     ).join("")
-//   }
+const renderFacilities = (allFacilities, allCriminals, allRelationships) => {
+    contentContainer.innerHTML = allFacilities.map((facility) => {
+        const criminalRelationship = allRelationships.filter(cf => cf.facilityId === facility.id)
+        
+        const criminals = criminalRelationship.map(cf => {
+            const matchingCriminal = allCriminals.find(criminal => criminal.id === cf.criminalId)
+            return matchingCriminal
+        })
+        return Facilities(facility, criminals)
+    }).join("")
+}
 
 
 // Facility List
@@ -79,3 +59,13 @@ const renderFacilities = (facilitiesCollection) => {
 // Use the code that you have in CriminalList for working with many-to-many relationships. 
 // Use the code in WitnessList to toggle the visibility of the list when the corresponding custom event is dispatched.
 // In the Facility component, use map() to iterate the list of matching criminals that was determined in the FacilityList component.
+
+
+// let facilitiesHTMLrepresentations = ""
+// for (const facilityObject of facilitiesCollection) {
+//     facilitiesHTMLrepresentations += Facilities(facilityObject)
+// }
+// contentContainer.innerHTML = `
+//     <h2>Facilities: </h2>
+//     ${facilitiesHTMLrepresentations}
+//     </section>`
