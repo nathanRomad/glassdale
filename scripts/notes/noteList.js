@@ -14,19 +14,22 @@ eventHub.addEventListener("noteStateChanged", event => {
   }
 })
 
+let notes = []
+let criminals = []
+
 export const NoteList = () => {
   getNotes()
       .then(getCriminals)
       .then(() => {
-        const notes = useNotes()
-        const criminals = useCriminals()
+        notes = useNotes()
+        criminals = useCriminals()
         render(notes, criminals)
       })
   }
 
-  const render = (noteArray, criminalCollection) => {
-    const allNotesConvertedToStrings = noteArray.map(noteObject => {
-    const relatedCriminal = criminalCollection.find(criminal => criminal.id === noteObject.id)
+  const render = (notes, criminals) => {
+  const allNotesConvertedToStrings = notes.map(noteObject => {
+    const relatedCriminal = criminals.find(criminal => criminal.id === noteObject.id)
     return NoteHTMLConverter(noteObject, relatedCriminal)
   }).join("")
     

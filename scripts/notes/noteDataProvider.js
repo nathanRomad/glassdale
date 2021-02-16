@@ -28,6 +28,7 @@ export const deleteNote = noteId => {
         method: "DELETE"
     })
         .then(getNotes)
+        .then(dispatchStateChangeEvent)
 }
 
 const eventHub = document.querySelector(".container")
