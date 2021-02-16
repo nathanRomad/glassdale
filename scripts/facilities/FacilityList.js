@@ -5,7 +5,7 @@ import { Facilities } from "./facilities.js"
 
 // This function renders the button to the DOM.
 export const DisplayFacilitiesButton = () => {
-    const contentTarget = document.querySelector(".facility__button")
+    const contentTarget = document.querySelector(".buttonContainer")
     contentTarget.innerHTML += "<button id='showFacilities'>Show Facilities</button>"
 }
 
