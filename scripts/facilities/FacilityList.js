@@ -1,34 +1,20 @@
-// This could be it's own module but I made decided to create the button and actions all in FacilityList.js
-
 import { getFacilities, useFacilities } from "./FacilityProvider.js"
-import { Facilities } from "./facilities.js"
+import { Facilities } from "./Facilities.js"
+import "./FacilitiesButton.js"
 
-// This function renders the button to the DOM.
-export const DisplayFacilitiesButton = () => {
-    const contentTarget = document.querySelector(".buttonContainer")
-    contentTarget.innerHTML += "<button id='showFacilities'>Show Facilities</button>"
-}
-
-// Establish where to listen for events
 const eventHub = document.querySelector(".container")
-// dispatch customEvent called "facilitiesButtonClicked" when the 'Show Facilities' button is clicked.
-eventHub.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id === "showFacilities") {
-        const customEvent = new CustomEvent("facilitiesButtonClicked")
-        eventHub.dispatchEvent(customEvent)
-        // debugger
-    }
-})
+const contentContainer = document.querySelector(".witnessContainer")
+const facilitiesContainer = document.querySelector(".facilityContainer")
+const criminalContainer = document.querySelector(".criminalsContainer")
+
 // Listen for the customEvent
 eventHub.addEventListener("facilitiesButtonClicked", clickEvent => {
     FacilitiesList()
 })
 
-const facilitiesContainer = document.querySelector(".facilityContainer")
-// Do I need a second target for my render? should I render the information to replace something?
-
 export const FacilitiesList = () => {
     facilitiesContainer.innerHTML = ""
+    criminalContainer.innerHTML = ""
     getFacilities()
     .then(() => {
         const faciilitiesArray = useFacilities()
@@ -41,11 +27,11 @@ const renderFacilities = (facilitiesCollection) => {
     for (const facilityObject of facilitiesCollection) {
         facilitiesHTMLrepresentations += Facilities(facilityObject)
     }
-    facilitiesContainer.innerHTML = `
-    <h2>Facilities: </h2>
-    ${facilitiesHTMLrepresentations}
-    </section>`
-}
+    contentContainer.innerHTML = `
+        <h2>Facilities: </h2>
+        ${facilitiesHTMLrepresentations}
+        </section>`
+    }
 
 
 // Facility List

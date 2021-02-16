@@ -8,6 +8,10 @@ import { getCriminalFacilities, useCriminalFacilities } from "../facilities/Crim
 const eventHub = document.querySelector(".container")
 const criminalsContainer = document.querySelector(".criminalsContainer")
 
+eventHub.addEventListener("showCriminalsClicked", event => {
+  CriminalList()
+})
+
 const renderToDom = (criminalsToRender, allFacilities, allRelationships) => {
   // Step 1 - Iterate all criminals
   criminalsContainer.innerHTML = criminalsToRender.map(
