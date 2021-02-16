@@ -1,6 +1,8 @@
 import { getFacilities, useFacilities } from "./FacilityProvider.js"
 import { Facilities } from "./Facilities.js"
 import "./FacilitiesButton.js"
+import { useCriminals } from "../criminals/CriminalProvider.js"
+import { useCriminalFacilities } from "./CriminalFacilityProvider.js"
 
 const eventHub = document.querySelector(".container")
 const contentContainer = document.querySelector(".witnessContainer")
@@ -17,12 +19,15 @@ export const FacilitiesList = () => {
     criminalContainer.innerHTML = ""
     getFacilities()
     .then(() => {
+        const crimeFacilities = useCriminalFacilities()
+        const criminals = useCriminals()
         const faciilitiesArray = useFacilities()
-        renderFacilities(faciilitiesArray)
+        renderFacilities(faciilitiesArray, criminals, crimeFacilities)
     })
 }
 
 const renderFacilities = (facilitiesCollection) => {
+
     let facilitiesHTMLrepresentations = ""
     for (const facilityObject of facilitiesCollection) {
         facilitiesHTMLrepresentations += Facilities(facilityObject)
