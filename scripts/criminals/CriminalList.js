@@ -72,7 +72,6 @@ eventHub.addEventListener("crimeChosen", crimeChosenEvent => {
   }
 })
 
-
 /// listening for officers arrest...
 eventHub.addEventListener("officerChosen", officerChosenEvent => {
   if (officerChosenEvent.detail.officerThatWasChosen !== "0") {
