@@ -15,6 +15,7 @@
     border: 2px dotted black;
     margin: 10px;
     max-width: 250px;
+    background-color: antiquewhite;
 }
 
 .facility__card {
@@ -25,6 +26,7 @@
   border: 2px dotted black;
   margin: 10px;
   max-width: 250px;
+  background-color: lightslategray;
 }
 
 .officer {
